@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "sw_mainTopBar";
+}
+@*111111 = @Request["seq"]*@
+@foreach (var item in Model)
+{
+    @Html.Raw(item.CONTENT.Replace("http://wowtvvod.xst.kinxcdn.com", "http://cdnvod.wowtv.co.kr"));
+}
+
+@{
+    if (Request["seq"] == "79404" || Request["seq"] == "79409" || Request["seq"] == "79419")    //VOD재생이 있는 콘텐츠의 경우에만, video JS include함
+    {
+
+        <!-- VIDEO -->
+        <link href="~/wwwroot/css/video-js.css" rel="stylesheet">
+        <script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js"></script>
+        <script src="~/wwwroot/js/video.js"></script>
+        <style type="text/css">
+            #hls-example {
+                width: 100%;
+                height: 544.45px;
+                margin-bottom: 15px;
+            }
+
+            .video-js .vjs-big-play-button {
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+            }
+        </style>
+        <script>
+            var player = videojs('hls-example');
+            //player.poster("https://swimg.wowtv.co.kr/static/images/mobile/2017/170331_678x210_bg.jpg");
+            player.play();
+        </script>
+        <!-- VIDEO -->
+    }
+
+}

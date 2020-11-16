@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Main";
+}
+<script>
+    function getParam(sname) {
+
+        var params = location.search.substr(location.search.indexOf("?") + 1);
+
+        var sval = "";
+
+        params = params.split("&");
+
+        for (var i = 0; i < params.length; i++) {
+
+            temp = params[i].split("=");
+
+            if ([temp[0]] == sname) { sval = temp[1]; }
+
+        }
+
+        return sval;
+
+    }
+    console.log("seq=" + getParam("seq"))
+
+    if (getParam("seq") == "") {
+        alert("잘못된 접근입니다.");
+    }
+
+
+</script>
+<h2>Main 고정bcode = S00010021</h2>
+
+
+seq = @Request["seq"]
+
+<div>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@item.SEQ</li>
+            <li>@item.TITLE</li>
+            <li>@item.CONTENT</li>
+            <li>@item.VIEW_FLAG</li>
+            <li>@item.REG_DATE</li>
+        }
+    </ul>
+</div>

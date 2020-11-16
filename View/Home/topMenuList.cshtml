@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "topMenuList";
+}
+@*
+*@
+
+TotalCount=@ViewBag.TotalCount
+
+
+
+    @for (int i = 0; i < ViewBag.TotalCount; i++)
+    {
+        if (i > 0)
+        {
+            <li class="menu_dot">·</li>
+        }
+        <li onclick="javascript:location.href='/Home/sw_mainTopBar?seq=@Model[i].SEQ';">@Model[i].TITLE</li>
+    }
+
+@*
+    <li onclick="javascript:location.href='/Home/sw_mainTopBar?seq=79404';">주식창W 소개</li>
+
+    <li class="menu_dot">·</li>
+    <li onclick="javascript:location.href='/Home/sw_mainTopBar?seq=79405';">주식창 소개</li>
+
+    <li class="menu_dot">·</li>
+    <li onclick="javascript:location.href='/Home/sw_mainTopBar?seq=79406';">패밀리앱</li>
+
+    <li class="menu_dot">·</li>
+    <li onclick="javascript:location.href='/Home/sw_mainTopBar?seq=79407';">종목알파고</li>
+
+    <li class="menu_dot">·</li>
+    <li onclick="javascript:location.href='/Home/sw_mainTopBar?seq=79408';">주식비타민</li>
+
+    <li class="menu_dot">·</li>
+    <li onclick="javascript:location.href='/Home/sw_mainTopBar?seq=79417';">머니탭</li>
+
+    <li class="menu_dot">·</li>
+    <li onclick="javascript:location.href='/Home/sw_mainTopBar?seq=79409';">진행중 이벤트</li>*@

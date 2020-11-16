@@ -1,0 +1,111 @@
+﻿@using Wow.Tv.Middle.Model.Common
+@using Wow.Tv.Middle.Model.Db49.wowtv;
+@using Wow.Tv.Middle.Model.Db49.wowtv.Kvina;
+
+@model KvinaNoticeView
+
+
+
+
+<script>
+
+    function goWriteEdit() {
+
+        $.ajax({
+            type: "GET",
+            data: "menuSeq=@Request["menuSeq"]&seq=@Model.SEQ",
+            url: "/kvina/kvina/KvinaNoticeWriteEdit",
+            success: function (resultText) {
+                //alert(resultText);
+                alert("처리됐습니다.");
+                location.href = "/kvina/kvina/KvinaNoticeView?menuSeq=@Request["menuSeq"]&seq=@Model.SEQ";
+            },
+            error: function (xhr, status, error) {
+                alert(status);
+            }
+        });
+
+
+        //document.f.submit();
+    }
+
+    function goDelete() {
+        if (confirm("삭제하시면 복구할수 없습니다.\n삭제하시겠습니까?")) {
+
+
+            $.ajax({
+                type: "GET",
+                data: "menuSeq=@Request["menuSeq"]&seq=@Model.SEQ",
+                url: "/kvina/kvina/KvinaNoticeDelete",
+                success: function (resultText) {
+                    //alert(resultText);
+                    alert("삭제됐습니다.");
+                    location.href = "/kvina/kvina/KvinaNoticeList?menuSeq=@Request["menuSeq"]";
+                },
+                error: function (xhr, status, error) {
+                    alert(status);
+                }
+            });
+
+
+        }
+
+    }
+</script>
+
+<form name="f" method="get" action="/kvina/kvina/KvinaNoticeWriteEdit">
+    <input type="hidden" name="menuSeq" value="@Request["menuSeq"]" />
+    <input type="hidden" name="seq" value="@Model.SEQ" />
+
+    <div class="wrap">
+
+        <!-- BBS Write -->
+        <div class="bbs-write1">
+            <table class="table">
+                <colgroup>
+                    <col width="200px">
+                    <col>
+                </colgroup>
+                <tr>
+                    <th><span class="nec">*</span>제목</th>
+                    <td>
+                        <input type="text" class="form-control" name="title" id="TITLE" value="@Model.TITLE" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="padding: 0; height: 400px;">
+                        <!-- 에디터 영역 -->
+                        <textarea id="" style="display: block;" maxlength="10000" cols="10" rows="20" name="content">@Model.CONTENT</textarea>
+
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <th>작성자</th>
+                    <td><input type="text" class="form-control" name="user_name" id="USER_NAME" value="@Model.USER_NAME" /></td>
+                </tr>
+                <tr>
+                    <th>작성일</th>
+                    <td>
+                        @Model.REG_DATE
+                    </td>
+                </tr>
+                <tr>
+                    <th>조회수</th>
+                    <td>@Model.READ_CNT</td>
+                </tr>
+            </table>
+        </div>
+        <!-- //BBS Write -->
+        <!-- Bottom Buttons -->
+        <div class="box-button">
+            <button class="btn btn-success" onclick="JavaScript: goWriteEdit();">글쓰기(수정하기)</button>
+            <a href="JavaScript:location.href='/Kvina/Kvina/KvinaNoticeList?menuSeq=@Request["menuSeq"]'" class="btn btn-success">목록</a>
+            <a href="Javascript: goDelete();" class="btn btn-default">삭제하기</a>
+        </div>
+        <!-- //Bottom Buttons -->
+
+    </div>
+</form>
+<!-- //공지사항 등록/수정/상세 -->

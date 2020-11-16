@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "findByBcode";
+}
+
+<h2>findByBcode ex) S10010000</h2>
+
+1
+bcode = @Request["bcode"]
+<div>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@item.SEQ</li>
+            <li>@item.TITLE</li>
+            <li>@*item.CONTENT*@</li>
+            <li>@item.VIEW_FLAG</li>
+            <li>@item.REG_DATE</li>
+        }
+    </ul>
+</div>

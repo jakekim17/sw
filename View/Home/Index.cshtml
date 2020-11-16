@@ -1,0 +1,87 @@
+﻿@*
+  <h1>@ViewBag.Message</h1>
+*@
+
+@*<h2>
+    @ViewBag.X + @ViewBag.Y = @ViewBag.Z
+</h2>*@
+
+@{
+    Layout = "/Views/Shared/_SwMainLayOut.cshtml";
+}
+<!-- [s]위닉스 API 무료 생방송 중에 가장 먼저 만들어진 1개만 던져줌. [s] -->
+	@{ 
+        string DB_vodurl = ViewBag.tmp_url;
+        int vod_on = 0;
+
+        if (DB_vodurl != "")
+        {
+            vod_on = 1;
+        }
+        else
+        {
+            vod_on = 0;
+        }
+        
+        string tmp_title = ViewBag.tmp_title.Replace("[무료]", "");
+	}
+<!-- [e]위닉스 API 무료 생방송 중에 가장 먼저 만들어진 1개만 던져줌.[e] -->
+<div class="broadcast_btn">
+    <ul>
+        <li class="active">오늘의 무료방송</li>
+        @if (Request.Cookies["devk"] == null || Request.Cookies["devk"].Value == "")
+        {
+            <li onclick="javascript:alert('로그인 후 이용할 수 있습니다.');">전체방송(채팅입장)</li>
+        }
+        else
+        {
+        <li onclick="javascript:centerPopup('http://sw.wowtv.co.kr/stockwin/chat/chatListView.html?userUUID=@Request.Cookies["devk"]','_blank',500,800,'no','no','no','yes','no','no');">전체방송(채팅입장)</li>        
+        }
+
+    </ul>
+</div>
+<div class="broadcast_contents">
+    <!-- [s] 스트리밍 부분 [s]-->
+    <!-- START -->
+    @if (vod_on == 1)
+    {
+        //LIVE VOD URL이 있을 때만 노출
+        <video id='hls-example' class="video-js vjs-default-skin" controls autoplay="true">
+            <source type="application/x-mpegURL" src="@DB_vodurl">
+        </video>
+
+        <div class="broadcast_title">
+            <span class="title">@tmp_title</span>
+            @if (Request.Cookies["devk"] == null || Request.Cookies["devk"].Value == "")
+            {
+                <span class="btn_off" onclick="javascript:alert('로그인 후 이용할 수 있습니다.');"></span>
+            }
+            else
+            {
+                <span class="btn_on" onclick="javascript:centerPopup('http://sw.wowtv.co.kr/stockwin/chat/chatListView.html?userUUID=@Request.Cookies["devk"]','_blank',500,800,'no','no','no','yes','no','no');"></span>
+            }
+        </div>
+    <!-- JS -->
+        <link href="~/wwwroot/css/video-js.css" rel="stylesheet">
+        <script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js"></script>
+        <script src="~/wwwroot/js/video.js"></script>
+        <script>
+            var player = videojs('hls-example');
+            player.poster("http://swimg.wowtv.co.kr/static/images/banner/2020/200619_650_play5.jpg");
+            player.play();
+        </script>
+    }
+    else
+    {
+        <div class="no_broadcast"></div>
+        <div class="broadcast_title">
+            <span class="alert">로그인하시면 전체 방송 및 채팅방을 보실 수 있습니다.<img src="https://swimg.wowtv.co.kr/static/images/common/stockwin/img_alarm.png" /></span>
+        </div>
+    }
+    <!-- END -->
+    <!-- [e] 스트리밍 부분 [e]-->
+
+    <div class="stockwin_now"></div>
+    @Html.Raw(Model.content)
+</div>
