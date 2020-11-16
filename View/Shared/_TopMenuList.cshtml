@@ -1,0 +1,48 @@
+﻿@using sw.swwebdataServiceReference
+@{
+    IswwebdataServiceClient client = new IswwebdataServiceClient();
+    var resultData = client.topMenuList();
+    var topmenu_TotalCount = resultData.Count();
+}
+@*
+    topmenu_TotalCount=@topmenu_TotalCount
+*@
+
+    @for (int i = 0; i < topmenu_TotalCount; i++)
+    {
+        if (i > 0)
+        {
+            <li class="menu_dot">·</li>
+        }
+        <li onclick="javascript:location.href='/Home/sw_mainTopBar?seq=@resultData[i].SEQ';">@resultData[i].TITLE</li>
+
+    }
+
+@* 클릭시 /Home/sw_mainTopBar?seq=79404로 이동하는 속도가 느려짐. *@
+@*
+    <li onclick="javascript:location.href='/Home/sw_mainTopBar?seq=79404';">주식창W 소개</li>
+    <li class="menu_dot">·</li>
+    <li onclick="javascript:location.href='/Home/sw_mainTopBar?seq=79405';">주식창 소개</li>
+    <li class="menu_dot">·</li>
+    <li onclick="javascript:location.href='/Home/sw_mainTopBar?seq=79406';">패밀리앱</li>
+    <li class="menu_dot">·</li>
+    <li onclick="javascript:location.href='/Home/sw_mainTopBar?seq=79407';">종목알파고</li>
+    <li class="menu_dot">·</li>
+    <li onclick="javascript:location.href='/Home/sw_mainTopBar?seq=79408';">주식비타민</li>
+    <li class="menu_dot">·</li>
+    <li onclick="javascript:location.href='/Home/sw_mainTopBar?seq=79409';">진행중 이벤트</li>
+    <li class="menu_dot">·</li>
+    <li onclick="javascript:location.href='/Home/sw_mainTopBar?seq=79417';">머니탭</li>
+*@
+
+
+@if (Request.Cookies["devk"] == null || Request.Cookies["devk"].Value == "")
+{
+    <li class="login_btn btn01"><span onclick="javascript: goLogin();">로그인</span></li>
+                    <li class="login"><input name="phone" type="text" value="휴대폰번호" onkeypress="return onlyNumber();" onFocus="clearText(this)" onblur="resetText(this)" /></li>
+}
+else
+{
+    <li class="login_btn btn01"><span onclick="javascript:goLogout();">로그아웃</span></li>
+                    <li class="nickname"><b>@Request.Cookies["nickname"].Value</b>님 환영합니다.</li>
+}

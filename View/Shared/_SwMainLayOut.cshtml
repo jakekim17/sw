@@ -1,0 +1,332 @@
+﻿
+<!DOCTYPE html>
+<html oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+<head>
+    <title>주식창 - 한국경제TV</title>
+    <meta http-equiv="content-type" content="text/html; charset=euc-kr">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta name="author" content="한국경제티브이">
+    <meta name="description" content="주식증권1위 앱, 증권시세, 주식비타민 - 주식창" />
+    <meta name="Keywords" content="주식창,한국경제TV,wowtv,증권,주식,시세,투자,강동진,김문석,김종철,이헌상,송재호,주식비타민,주식알파고,종목알파고,CANSMILE,홀짝박사,수급,명품,차트,주식창앱,국내지수,해외지수,체결강도,특징주,외인/기관동시순매수,종목랭킹,유사차트,매직패턴,가상화폐,시세알림,채팅방,고수채팅방">
+    <meta name="copyright" content="wowtv, Inc" />
+    <meta name="naver-site-verification" content="3078e060f9e05a27c5a50806d54b2fd8359ea8a1" />
+    <meta name="google-site-verification" content="MvH75U9ZJFcxkx7VsyQUUPyLVgIRIIarSHLSAMJoAs0" />
+
+    <meta property="og:url" content='https://sw.wowtv.co.kr'>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="주식창 - 한국경제TV">
+    <meta property="og:description" content="주식 증권1위 앱, 증권시세, 주식비타민 - 주식창">
+    <meta property="og:image" content="https://swimg.wowtv.co.kr/static/images/mobile/2017/170411_stockwinlogo_swcom.png">
+    <script type="text/javascript" src="https://swimg.wowtv.co.kr/static/js/jquery-1.9.0.js"></script>
+    <script type="text/javascript" src="/res/js/jquery.bxslider_4.1.2.min.js"></script>
+
+    <script src="~/Scripts/stockwin_js.js"></script>
+
+    <link rel="stylesheet" href="https://stockwin.wowtv.co.kr/res/css/new_reset.css" />
+    <link rel="stylesheet" href="https://stockwin.wowtv.co.kr/res/css/normalize.css" />
+    <link rel="stylesheet" href="https://stockwin.wowtv.co.kr/res/css/jquery.bxslider.css" />
+    <link rel="stylesheet" href="https://stockwin.wowtv.co.kr/res/css/stockwin.css?date=202010301451" />
+</head>
+<body>
+
+    <div id="wrap">
+        <section class="loading_0">
+            <div class="loading_box_0">인증 요청 중<span id="viewDot">.</span></div>
+        </section>
+        <section class="loading_1">
+            <div class="loading_box_1">주식창앱에서 인증하기를 누르시면<br>자동으로 로그인 됩니다.<div class="viewBar"><span id="viewCntBar" class="viewCntBar">&nbsp;</span></div><span id="btnStop">인증 취소</span></div>
+        </section>
+        <section class="loading_2">
+            <div class="loading_box_2">주식창앱에서 결제하기를 누르시면<br>ARS 전화결제(신용카드)로 연결됩니다.<div class="viewBar2"><span id="btnStop2">확인</span></div></div>
+        </section>
+        <section class="lec_bg">
+
+            <script type="text/javascript">
+		<!--
+		/// Configuration for Player ///////////////////////////////////////////////////
+		var cfg = {
+			// 자동 재생
+			autoPlay         : true,
+			// true로 지정할 경우 별도로 플레이어 객체를 생성할 필요가 없습니다(자동생성).
+			autoSetup		 : true,
+			preload			 : 'auto',
+			// 이어보기 시간
+			continuerTime	 : 0,
+			// 버퍼시간 설정(기본값 : 1.5)
+			bufferTime       : 1.5,
+			// 사용할 컨트롤러들 설정
+			controllers      : {
+				timeSlider      : true, // 타임 슬라이더
+				playButton      : true, // 재생/일시정지 버튼
+				osdPlayButton   : false, // OSD 영역의 재생/일시정지 버튼
+				currentTime     : true, // 현재 재생시간 라벨
+				durationTime    : true, // 총 재생시간 라벨
+				fullscreenButton: true, // 풀스크린 버튼
+				expandButton    : true, // 화면확장 버튼
+				volumeButton    : true, // 볼륨 버튼
+				volumeSlider    : true, // 볼륨 슬라이더
+			    speedDownButton : true, // 배속 감소 버튼
+				currentSpeed    : true, // 현재 배속 라벨
+		        speedUpButton   : true // 배속 증가 버튼
+			},
+
+			speedLabelText : ' x',
+
+			speedRates : [0.5, 1.0, 1.5, 2.0, 2.5, 3.0],
+
+			progressTime : true,
+
+			useShortcuts : true,
+
+		   // 외부 API
+			externalAPI     : {
+				modeCollapse    : collapseVideo,
+				modeExpand      : expandVideo
+			},
+
+			// 컨트롤바 자동 숨김 사용 여부
+			controllersAutoHide : false,
+			controllerHideDelay : 3,
+
+			// 플레이어 사용 도메인
+			domain : 'sw.wowtv.co.kr',
+
+			// 디버그 모드
+			// 배포시에 false 지정 또는 제거
+			// 개발 및 디버그시 true로 지정
+			//debugMode        : true,
+			// 리소스
+			sources          : null,
+			// 스킨 (eduwill.css)
+			skin             : 'wowtv',
+			// 볼륨 슬라이더 유형
+			volumeSliderType : 1
+		};
+		////////////////////////////////////////////////////////////////////////////////
+
+		/// DOM Ready //////////////////////////////////////////////////////////////////
+		/*
+		 * 해당 페이지의 DOM이 준비된 후 호출되는 메서드로
+		 * 리소스를 지정하고 플레이어 인스턴스 객체를 생성
+		 */
+		function onDOMReady() {
+			// 모바일이 아닐 경우 리소스 설정
+			if (!mp.browser.isMobile) {
+				cfg.poster = '';
+				cfg.sources = [
+				// 광고
+		//        {
+		//            isAD       : true,
+		//            skipTime   : 5,
+		//            clickToURL : '/funfun/',
+		//            src        : 'https://archive.org/download/ElephantsDream/ed_hd.mp4'
+		//        },
+
+				// 본영상
+				{
+		//            src : 'http://cdnvod.wowtv.co.kr:8080/EditVOD/E20161017/A201610170248_20161017164045929.mp4'
+		//            src : 'http://cdnvod.wowtv.co.kr/wowtvvod/_definst_/mp4:stockwinlive/boaz_20170323.mp4/playlist.m3u8'
+					src : ''
+				}];
+				// 플래시 플레이어를 사용하도록 설정(RTMP 스트리밍은 플래시 플레이어를 사용함)
+				//cfg.useFlash = true;
+			}
+			// 모바일일 경우 리소스 지정
+		//    else {
+				// 모바일일 경우 m3u8 등의 URL 지정
+		//        cfg.sources = [{
+		//            src : ''
+		//        }];
+		//    }
+
+			// 플레이어 객체 생성
+			mp.createVODPlayer(mp.dom.getElement('#swdc_player'), cfg, onPlayerReady);
+		}
+		// DOM이 준비될 경우 실행할 콜백함수 등록
+		//mp.dom.onReady(onDOMReady);
+		////////////////////////////////////////////////////////////////////////////////
+
+
+		/// Player Ready ///////////////////////////////////////////////////////////////
+		/*
+		 * 플레이어 인스턴스 객체가 생성된 후 실행되는 콜백함수
+		 */
+		function onPlayerReady() {// this = <Player instance object>
+			// 재생 리소스가 변경될 경우 실행할 이벤트리스너 등록
+			this.on(this.eventType.CHANGED_RESOURCE, onChangedResource);
+			// 재생이 종료될 경우 실행할 이벤트리스너 등록
+			this.on(this.eventType.END, onPlayEnd);
+		}
+		////////////////////////////////////////////////////////////////////////////////
+
+
+		/// Resource Changed ///////////////////////////////////////////////////////////
+		/*
+		 * 재생 리소스가 변경될 경우 실행할 이벤트리스너
+		 */
+		function onChangedResource() {
+			var player = this;
+			setTimeout(function() {
+				if (player.state == 'pause') {
+					player.trigger(mp.vodEvent.CHANGE_PLAY);
+				}
+			}, 1500);
+		}
+		////////////////////////////////////////////////////////////////////////////////
+
+
+		/// Play End ///////////////////////////////////////////////////////////////////
+		/*
+		 * 재생이 종료되거나 라이브 스트리밍이 종료될 경우 실행할 이벤트리스너
+		 */
+		function onPlayEnd() {// this = <Player instance object>
+			// 포스터 이미지 노출
+			mp.dom.show(this.osd.posterElement);
+			// 광고 영상 종료 후 본영상 재생시 [Skip] 버튼이 노출되는 이슈 개선
+			$('.mpv_osd_skip_button').hide();
+		}
+		////////////////////////////////////////////////////////////////////////////////
+
+		/// Expand/Collapse ////////////////////////////////////////////////////////////
+		/**
+		 * 확장된 플레이어 화면을 복원하기 위한 함수
+		 */
+		function collapseVideo() {
+			var area = document.querySelector('div.content');
+			var area2 = document.querySelector('div.lec_top');
+			area.style.width = '';
+			area.style.height = '';
+			area2.style.width = '';
+			var wtop = (screen.availHeight/2) - (550/2);
+			$('div.lec_top').css("margin-top",wtop);
+			return true;
+		}
+
+		/**
+		 * 플레이어 화면 확장을 위한 함수
+		 */
+		function expandVideo() {
+			var area = document.querySelector('div.content');
+			var area2 = document.querySelector('div.lec_top');
+			area.style.width = '1280px';
+			area.style.height = '720px';
+			area2.style.width = '1280px';
+			var wtop = (screen.availHeight/2) - (870/2);
+			$('div.lec_top').css("margin-top",wtop);
+			return true;
+		}
+		////////////////////////////////////////////////////////////////////////////////
+
+		//-->
+            </script>
+            <div class="lec_top">
+                <span class="l_num"></span>
+                <span class="l_title"></span>
+                <span class="l_time">(분)</span>
+
+                <span class="l_close" onclick="javascript:goLec();">x</span>
+
+            </div>
+            <div class="content">
+                <video id="swdc_player"></video>
+            </div>
+        </section>
+    </div>
+
+    <script type="text/javascript">
+<!--
+	$('.lec_bg').hide();
+//-->
+    </script>
+
+    <div class="body">
+        <!-- header s -->
+
+        <form name="lecture" method="get">
+            <input type="hidden" name="lecVal" value="" />
+        </form>
+        <form name="lec_form1" method="get">
+            <input type="hidden" name="lecSeq" value="">
+        </form>
+        <form name="lec_form2" method="get">
+            <input type="hidden" name="lecSeq" value="">
+            <input type="hidden" name="lecVal" value="">
+            <input type="hidden" name="payService">
+        </form>
+
+        <div class="main_top">
+            <ul class="login">
+                @Html.Partial("~/Views/Shared/_TopMenuList.cshtml")
+            </ul>
+        </div>
+        <div class="main_logo">
+            <ul class="logo"><li class="logo" onclick="javascript:location.href='/';" title="주식창홈" alt="주식창홈"></li></ul>
+        </div>
+        <div class="main_title_img">
+            <div class="title_img"></div>
+        </div>
+
+        <!-- header e -->
+        <!--
+        <video id='hls-example' width="100%" autoplay="" controls="" muted="" poster="http://swimg.wowtv.co.kr/static/images/190624_650_play.jpg" class="video-js vjs-default-skin" controls autoplay="true"  >
+            <source type="application/x-mpegURL" src="http://wowtvvod.xst.kinxcdn.com/stockwinlive/_definst_/20201016_event.mp4/playlist.m3u8">
+        </video>
+        -->
+        <!-- contents s -->
+        <div class="main_contents">
+            @RenderBody()
+        </div>
+        <!-- contents e -->
+        <!-- footer s -->
+        <div class="footer label">
+            <ul>
+
+                <li class="left_footer"><img src="https://swimg.wowtv.co.kr/static/images/mobile/2017/170411_stockwinlogo_swcom.png" /></li>
+
+                <li class="right_footer">
+                    <div class="footer_link">
+                        <ul>
+                            <li><a href="http://company.wowtv.co.kr/" target="_balnk">회사소개</a></li>
+                            <li class="footer_bar">|</li>
+                            <li><a href="http://company.wowtv.co.kr/BusinessGuide/Business/Index?menuSeq=432" target="_balnk">광고안내</a></li>
+                            <li class="footer_bar">|</li>
+                            <li><a href="http://provision.wowtv.co.kr/Operation/Policy/TermsOfService" target="_blank">이용약관</a></li>
+                            <li class="footer_bar">|</li>
+                            <li><a href="http://provision.wowtv.co.kr/Operation/Policy/PrivacyPolicy" target="_blank" style="font-weight:bold;">개인정보처리방침</a></li>
+                            <li class="footer_bar">|</li>
+                            <li><a href="http://company.wowtv.co.kr/WowTvGuide/Directions/Index?menuSeq=147" target="_blank">찾아오시는 길</a></li>
+                            <li class="footer_bar">|</li>
+                            <li>
+                                <select onchange='if(this.selectedIndex) { this.blur(); window.open(options[selectedIndex].value); }'>
+                                    <option>패밀리 사이트</option>
+                                    <option value="http://www.wowtv.co.kr/">한국경제TV</option>
+                                    <option value="http://www.wownet.co.kr/">와우넷</option>
+                                    <option value="http://www.wowfa.co.kr/">와우파</option>
+                                    <option value="http://www.kvina.co.kr/">한경 K-VINA</option>
+                                    <option value="http://www.wowsl.co.kr/kr/index.php">와우SL</option>
+                                    <option value="http://www.hankyung.com/">한국경제신문</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="contact1">본 사이트에서 제공되는 모든 정보는 투자판단의 참고자료이며, 서비스 이용에 따른 최종 책임은 이용자에게 있습니다.</div>
+                    <div class="contact2">서울시 영등포구 버드나루로 84(07230) (주)한국경제티브이 | 사장 : 이봉구 | 사업자등록번호 : 107-81-70183</div>
+                    <div class="contact2">통신판매업신고 : 영등포구 2000-00571호 | 호스팅제공자 (주)한국경제티브이 | COPYRIGHT(C)한국경제TV.ALL RIGHTS RESERVED.</div>
+                </li>
+            </ul>
+        </div>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-51494055-59"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'UA-51494055-59');
+        </script>
+        <!-- footer e -->
+    </div>
+</body>
+</html>
